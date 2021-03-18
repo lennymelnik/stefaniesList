@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { PostRequest } from './postReq';
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Tasks from './components/Tasks';
 
 function App() {
+  const hello = "Hes"
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title="yes"/>
+    <Tasks></Tasks>
+      <h1> Hello my name is leonard</h1>
+      <h>Must be in here { "hello" }</h>
+      <Footer />
+
+    
     </div>
   );
 }
