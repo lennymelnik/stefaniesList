@@ -2,21 +2,7 @@ import Sections from "./Sections"
 import { useState, useEffect } from 'react'
 
 const NewTask = (props) => {
-    const [sections, setSections] = useState([])
-
-    useEffect(() =>{
-       const getSections = async () => {
-           const sectionsFromServer = await fetchData()
-           setSections(sectionsFromServer)
-       }
-        getSections()
-    }, [])
-    //get Data
-    const fetchData = async () => {
-        const res = await fetch('http://localhost:8000/sections')
-        const data = await res.json()
-        return data
-    }
+    const sections = props.sections
     const onChangeSection = () => {
         console.log(document.getElementById('taskSection').value)
         for(var i=0;i<sections.length;i++){
@@ -28,14 +14,18 @@ const NewTask = (props) => {
         }
 
         }
+
+   
     return (
         <div>
              <input id="taskName"  placeholder="Name"></input>
-                <select onChange = { onChangeSection} id="taskSection"  class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <Sections sections = { sections }></Sections>
-                </select>
+             <label for="taskSection" class="form-label">Topic/Label</label>
 
+
+                    <input onChange = { onChangeSection} class="form-control" list="datalistOptions" id="taskSection" placeholder="Type to search..."></input>
+                    <datalist  id="datalistOptions">
+                    <Sections sections = { props.sections }></Sections>
+                    </datalist>
 
 
                 <label for="taskColor" class="form-label">Color picker</label>
