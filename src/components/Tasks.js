@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react'
 import Task from './tasks/Task';
-import Sections from './tasks/Sections';
+import Labels from './tasks/Labels';
 import NewTask from './tasks/NewTask';
 
 

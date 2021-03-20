@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Tasks from './Tasks';
 import NewTask from './tasks/NewTask';
-import SectionsList from './SectionsList';
+import LabelsList from './LabelsList';
 
 
 const Home = () => {
@@ -33,9 +33,9 @@ const Home = () => {
       return data
     }
     const getLabel = (name) => {
-        for(var i = 0;i<sections.length;i++){
-            if(sections[i].name == name){
-                return sections[i]
+        for(var i = 0;i<labels.length;i++){
+            if(labels[i].name == name){
+                return labels[i]
                 break
             }
 
@@ -46,16 +46,16 @@ const Home = () => {
         if(document.getElementById('taskName').value ){
             
             var newTask
-            if(document.getElementById('taskSection').value){
+            if(document.getElementById('taskLabel').value){
                 //If there is a label
-                const labelName = document.getElementById('taskSection').value
-                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskSection').value,backgroundColor : getLabel(labelName).backgroundColor, textColor : getLabel(labelName).textColor}
+                const labelName = document.getElementById('taskLabel').value
+                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : getLabel(labelName).backgroundColor, textColor : getLabel(labelName).textColor}
                 
 
              
             }else{
                 console.log("no label")
-                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskSection').value,backgroundColor : document.getElementById('taskColor').value, textColor : document.getElementById('taskTextColor').value}
+                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : document.getElementById('taskColor').value, textColor : document.getElementById('taskTextColor').value}
 
               
             }
@@ -67,12 +67,12 @@ const Home = () => {
         }
      
       }
-      const [label, setLabel] = useState([])
+      const [labels, setLabels] = useState([])
 
       useEffect(() =>{
          const getLabel = async () => {
              const labelsFromServer = await getLabelsServer()
-             setSections(labelsFromServer)
+             setLabels(labelsFromServer)
          }
           getLabel()
       }, [])
@@ -84,7 +84,7 @@ const Home = () => {
       }
     return (
         <div>
-            <NewTask submitTask = { submitTask } sections = { sections }>
+            <NewTask submitTask = { submitTask } labels = { labels }>
             </NewTask>
             <Tasks tasks ={ tasks }></Tasks>
             

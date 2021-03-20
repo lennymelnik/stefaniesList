@@ -1,14 +1,14 @@
-import Sections from "./Sections"
+import Labels from "./Labels"
 import { useState, useEffect } from 'react'
 
 const NewTask = (props) => {
-    const sections = props.sections
-    const onChangeSection = () => {
-        console.log(document.getElementById('taskSection').value)
-        for(var i=0;i<sections.length;i++){
-            if(sections[i].name == document.getElementById('taskSection').value)
-            document.getElementById("taskColor").value = sections[i].textColor
-            document.getElementById("taskTextColor").value = sections[i].backgroundColor
+    const labels = props.labels
+    const onChangeLabel = () => {
+        console.log(document.getElementById('taskLabel').value)
+        for(var i=0;i<labels.length;i++){
+            if(labels[i].name == document.getElementById('taskLabel').value)
+            document.getElementById("taskColor").value = labels[i].textColor
+            document.getElementById("taskTextColor").value = labels[i].backgroundColor
 
 
         }
@@ -17,25 +17,35 @@ const NewTask = (props) => {
 
    
     return (
-        <div>
-             <input id="taskName"  placeholder="Name"></input>
-             <label for="taskSection" class="form-label">Topic/Label</label>
+        <div className="row g-3">
+        <div class="col-auto">
+        <label for="taskName" class="form-label">Topic/Label</label>
 
+                    <input id="taskName" className="form-control" placeholder="Name"></input>
+        </div>
+        <div class="col-auto">
+        <label for="taskLabel" class="form-label">Topic/Label</label>
 
-                    <input onChange = { onChangeSection} class="form-control" list="datalistOptions" id="taskSection" placeholder="Type to search..."></input>
+        <input onChange = { onChangeLabel} className="form-control" list="datalistOptions" id="taskLabel" placeholder="Type to search..."></input>
                     <datalist  id="datalistOptions">
-                    <Sections sections = { props.sections }></Sections>
-                    </datalist>
+                    <Labels labels = { labels }></Labels>
+                    </datalist>     
+        </div>
+        <div class="col-auto">
+   
 
 
-                <label for="taskColor" class="form-label">Color picker</label>
-                <input type="color" class="form-control form-control-color" id="taskColor"  title="Choose your color"></input>
+                <label for="taskColor" className="form-label">Background Color</label>
+                <input type="color" className="form-control form-control-color" id="taskColor"  title="Choose your color"></input>
+</div>
+<div class="col-auto">
 
-                <label for="taskTextColor" class="form-label">Color picker</label>
-                <input type="color" class="form-control form-control-color" id="taskTextColor"  title="Choose your color"></input>
-          
+                <label for="taskTextColor" className="form-label">Text Color</label>
+                <input type="color" className="form-control form-control-color" id="taskTextColor"  title="Choose your color"></input>
+          </div>
+      
+                <button className="form-control" onClick = { props.submitTask }>Submit</button>
 
-                <button onClick = { props.submitTask }>Submit</button>
         </div>
     )
 }
