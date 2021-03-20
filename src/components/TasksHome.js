@@ -49,13 +49,15 @@ const Home = () => {
             if(document.getElementById('taskLabel').value){
                 //If there is a label
                 const labelName = document.getElementById('taskLabel').value
-                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : getLabel(labelName).backgroundColor, textColor : getLabel(labelName).textColor}
+                //newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : getLabel(labelName).backgroundColor, textColor : getLabel(labelName).textColor}
+                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : document.getElementById('taskBackgroundColor').value, textColor : document.getElementById('taskTextColor').value}
+
                 
 
              
             }else{
                 console.log("no label")
-                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : document.getElementById('taskColor').value, textColor : document.getElementById('taskTextColor').value}
+                newTask = {name: document.getElementById('taskName').value, tag : document.getElementById('taskLabel').value,backgroundColor : document.getElementById('taskBackgroundColor').value, textColor : document.getElementById('taskTextColor').value}
 
               
             }

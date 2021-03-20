@@ -7,8 +7,9 @@ const NewTask = (props) => {
         console.log(document.getElementById('taskLabel').value)
         for(var i=0;i<labels.length;i++){
             if(labels[i].name == document.getElementById('taskLabel').value)
-            document.getElementById("taskColor").value = labels[i].textColor
-            document.getElementById("taskTextColor").value = labels[i].backgroundColor
+            document.getElementById("taskBackgroundColor").value = labels[i].backgroundColor
+            document.getElementById("taskTextColor").value = labels[i].textColor
+
 
 
         }
@@ -36,7 +37,7 @@ const NewTask = (props) => {
 
 
                 <label for="taskColor" className="form-label">Background Color</label>
-                <input type="color" className="form-control form-control-color" id="taskColor"  title="Choose your color"></input>
+                <input type="color" className="form-control form-control-color" id="taskBackgroundColor"  title="Choose your color"></input>
 </div>
 <div class="col-auto">
 
