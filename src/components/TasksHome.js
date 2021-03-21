@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react'
 import Tasks from './Tasks';
 import NewTask from './tasks/NewTask';
-import LabelsList from './LabelsList';
+import LabelsShow from './labels/LabelsList';
+import LabelModal from './labels/Modal'
 
 
 const Home = () => {
@@ -89,7 +90,10 @@ const Home = () => {
             <NewTask submitTask = { submitTask } labels = { labels }>
             </NewTask>
             <Tasks tasks ={ tasks }></Tasks>
-            
+           
+        <LabelModal labels= { labels } setLabels = { setLabels }></LabelModal>
+                
+
         </div>
     )
 }
