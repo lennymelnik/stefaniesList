@@ -45,7 +45,7 @@ const NewTask = (props) => {
                 <input type="color" className="form-control form-control-color" id="taskTextColor"  title="Choose your color"></input>
           </div>
       
-                <button className="form-control" onClick = { props.submitTask }>Submit</button>
+                <button className="form-control btn-sm" onClick = { props.submitTask }>Submit</button>
 
         </div>
     )

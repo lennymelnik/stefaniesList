@@ -13,7 +13,7 @@ const Tasks = (props) => {
     //Ask steff about time energy table
     return (
         <div>
-        <table className="table table-striped">
+        <table className="table table-responsive table-striped ">
       <thead>
         <tr >
           <th scope="col">Topic</th>
